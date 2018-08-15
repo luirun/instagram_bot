@@ -1,0 +1,31 @@
+= form_for(@page) do |f|
+  - if @page.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@page.errors.count, "error")
+        prohibited this page from being saved:
+      %ul
+        - @page.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :my_profile_id
+    %br/
+    = f.collection_select(:my_profile_id, MyProfile.all, :id, :username)
+  .field
+    = f.label :url
+    %br/
+    = f.text_area :url
+  .field
+    = f.label :followers_count
+    %br/
+    = f.text_field :followers_count
+  .field
+    = f.label :followings_count
+    %br/
+    = f.text_field :followings_count
+  .field
+    = f.label :posts_count
+    %br/
+    = f.text_field :posts_count
+  .actions
+    = f.submit

@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Page url:
+  = @page.url
+%p
+  %strong Followers count:
+  = @page.followers_count
+%p
+  %strong Following count:
+  = @page.followings_count
+%p
+  %strong Posts count:
+  = @page.posts_count
+= link_to 'Edit', edit_page_path(@page)
+|
+= link_to 'Back', pages_path

@@ -1,0 +1,14 @@
+%p#notice= notice
+%p
+  %strong Url:
+  = @my_profile.url
+%p
+  %strong Username:
+  = @my_profile.username
+%p
+  %strong Password:
+  = @my_profile.password
+= link_to 'Fetch Related Users', my_profile_fetch_users_path(@my_profile)
+= link_to 'Edit', edit_my_profile_path(@my_profile)
+|
+= link_to 'Back', my_profiles_path

@@ -1,0 +1,28 @@
+%p#notice= notice
+= link_to "Update Users Details", update_users_details_path
+= link_to "Delete unwanted Users", delete_unwanted_users_path
+%h1 Listing Users
+%table
+  %thead
+    %tr
+      %th Profile url
+      %th Like count
+      %th Comments count
+      %th Posts count
+      %th Followers
+      %th Followings
+      %th{:colspan => "3"}
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.profile_url, user.profile_url
+        %td= user.like_count
+        %td= user.comments_count
+        %td= user.posts_count
+        %td= user.followers_count
+        %td= user.followings_count
+        %td= link_to 'Show', user
+        %td= link_to 'Edit', edit_user_path(user)
+        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New User', new_user_path

@@ -1,0 +1,23 @@
+= form_with(model: my_profile, local: true) do |form|
+  - if my_profile.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(my_profile.errors.count, "error")
+        prohibited this my_profile from being saved:
+      %ul
+        - my_profile.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :url
+    = form.text_area :url
+  .field
+    = form.label :username
+    = form.text_area :username
+  .field
+    = form.label :password
+    = form.text_area :password
+  .field
+    = form.label :related_hashtags
+    = form.text_area :related_hashtags
+  .actions
+    = form.submit

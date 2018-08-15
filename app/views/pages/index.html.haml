@@ -1,0 +1,23 @@
+%p#notice= notice
+%h1 Listing Pages
+%table
+  %thead
+    %tr
+      %th Page url
+      %th Followers count
+      %th Following count
+      %th Posts count
+      %th{:colspan => "3"}
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= link_to page.url, page.url
+        %td= page.followers_count
+        %td= page.followings_count
+        %td= page.posts_count
+        %td= link_to 'Show', page
+        %td= link_to 'Edit', edit_page_path(page)
+        %td= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Fetch photos', fetch_pages_photos_path(page.id)
+%br/
+= link_to 'New Page', new_page_path

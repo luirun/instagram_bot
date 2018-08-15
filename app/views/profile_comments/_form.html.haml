@@ -1,0 +1,38 @@
+= form_with(model: profile_comment, local: true) do |form|
+  - if profile_comment.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(profile_comment.errors.count, "error")
+        prohibited this profile_comment from being saved:
+      %ul
+        - profile_comment.errors.full_messages.each do |message|
+          %li= message
+  .tutorial
+    %b How to write comment content?
+    Words in '{}' brackets and delimited by '|' will be spinned. Don't use nested brackets.
+    %b Examples:
+    "Wow this {photo|image|content} is really {awesome|great|cool}. {Thank you for sharing it|You are awesome bro!}" =&gt; "Wow this photo is really great. You are awesome bro!" or "Wow this content is really cool. Thank you for sharing it!"
+    %b Content will be spinned by random at commenting!
+  .field
+    = form.label :profile_id
+    = form.collection_select(:profile_id, MyProfile.all, :id, :username)
+  .field
+    = form.label :content
+    = form.text_area :content, class: 'content'
+  %b Live content spinning:
+  .examples
+    Write something!
+  .field
+    = form.label :related_hashtags
+    = form.text_area :related_hashtags, placeholder: "Leave empty to use account hashtags..."
+  .actions
+    = form.submit
+:javascript
+  $(document).ready(function(){
+    $(".content").on("keyup", function(event) {
+      $.post("/profile_comments/spin_comment",
+      {
+        content: $(this).val()
+      });
+    });
+  });

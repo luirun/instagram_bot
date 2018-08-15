@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1 Listing Photos
+%table
+  %thead
+    %tr
+      %th Page url
+      %th Url
+      %th Likes count
+      %th Description
+      %th{:colspan => "3"}
+  %tbody
+    - @photos.each do |photo|
+      %tr
+        %td= photo.page_id
+        %td= photo.url
+        %td= photo.likes_count
+        %td= photo.description
+        %td= link_to 'Show Comments', photo_comments_path(photo)
+        %td= link_to 'Edit', edit_photo_path(photo)
+        %td= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Photo', new_photo_path

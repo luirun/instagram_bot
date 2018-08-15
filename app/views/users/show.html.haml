@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Profile url:
+  = @user.profile_url
+%p
+  %strong Like count:
+  = @user.like_count
+%p
+  %strong Comment count:
+  = @user.comments_count
+%p
+  %strong Posts count:
+  = @user.posts_count
+%p
+  %strong Followers count:
+  = @user.followers_count
+%p
+  %strong Followings count:
+  = @user.followings_count
+= link_to 'Edit', edit_user_path(@user)
+|
+= link_to 'Back', users_path

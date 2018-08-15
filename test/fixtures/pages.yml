@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  page_url: MyText
+  followers_count: 
+  following_count: 
+  posts_count: 
+
+two:
+  page_url: MyText
+  followers_count: 
+  following_count: 
+  posts_count: 

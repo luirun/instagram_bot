@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong User:
+  = @comment.user_id
+%p
+  %strong Photo:
+  = @comment.photo_id
+%p
+  %strong Page:
+  = @comment.content
+= link_to 'Edit', edit_comment_path(@comment)
+|
+= link_to 'Back', comments_path

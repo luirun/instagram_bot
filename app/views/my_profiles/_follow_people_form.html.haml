@@ -1,0 +1,4 @@
+%td.formatted
+  = form_for profile, method: :post, url: follow_people_path(profile) do |f|
+    = f.number_field :limit, class: 'number_select', value: 1
+    = f.submit "Follow", class: 'submit_form'

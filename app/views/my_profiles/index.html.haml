@@ -1,0 +1,30 @@
+%div#celownik
+  Witam panstwa
+%p#notice= notice
+%h1 My Profiles
+%table
+  %thead
+    %tr
+      %th Url
+      %th Username
+      %th Followers Count
+      %th Followings Count
+      %th{:colspan => "4"}
+      %th Follow People
+  %tbody
+    - @my_profiles.each do |my_profile|
+      %tr
+        %td= link_to my_profile.url, my_profile.url
+        %td= my_profile.username
+        %td= my_profile.statistics.last.followers_count
+        %td= my_profile.statistics.last.followings_count
+        %td= link_to 'Show', my_profile
+        %td= link_to 'Edit', edit_my_profile_path(my_profile)
+        %td= link_to 'Destroy', my_profile, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Automate Promote', automated_profile_promotion_path(my_profile)
+        = render 'follow_people_form', profile: my_profile
+        %td= link_to 'Unfollow People', unfollow_people_path(my_profile)
+%br/
+= link_to 'New My Profile', new_my_profile_path
+
+= javascript_pack_tag 'tic_tac'

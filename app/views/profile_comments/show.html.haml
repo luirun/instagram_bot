@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Profile:
+  = @profile_comment.profile_id
+%p
+  %strong Content:
+  = @profile_comment.content
+%p
+  %strong Related hashtags:
+  = @profile_comment.related_hashtags
+= link_to 'Edit', edit_profile_comment_path(@profile_comment)
+|
+= link_to 'Back', profile_comments_path

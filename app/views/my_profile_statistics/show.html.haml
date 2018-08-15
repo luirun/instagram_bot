@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Profile:
+  = @my_profile_statistic.profile_id
+%p
+  %strong Post count:
+  = @my_profile_statistic.posts_count
+%p
+  %strong Followers count:
+  = @my_profile_statistic.followers_count
+%p
+  %strong Followings count:
+  = @my_profile_statistic.followings_count
+= link_to 'Edit', edit_my_profile_statistic_path(@my_profile_statistic)
+|
+= link_to 'Back', my_profile_statistics_path

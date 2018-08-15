@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile_url: MyText
+  like_count: 
+  comment_count: 
+
+two:
+  profile_url: MyText
+  like_count: 
+  comment_count: 

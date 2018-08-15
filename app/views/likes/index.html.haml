@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Listing Likes
+%table
+  %thead
+    %tr
+      %th User
+      %th Photo
+      %th{:colspan => "3"}
+  %tbody
+    - @likes.each do |like|
+      %tr
+        %td= like.user_id
+        %td= like.photo_id
+        %td= link_to 'Show', like
+        %td= link_to 'Edit', edit_like_path(like)
+        %td= link_to 'Destroy', like, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Like', new_like_path
